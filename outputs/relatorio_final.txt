@@ -1,0 +1,27 @@
+## Taxa de Mortalidade
+
+A taxa de mortalidade observada foi de 7,73%.
+
+O cálculo foi realizado considerando apenas registros com evolução conhecida, excluindo casos que ainda não possuem desfecho registrado. Essa abordagem reduz o viés causado por notificações em andamento e melhora a representatividade da métrica.
+
+## Taxa de Utilização de UTI
+
+Dos 146.386 registros que possuíam informação sobre internação em UTI, 42.519 apresentaram utilização de unidade de terapia intensiva, resultando em uma taxa de 29,05%.
+
+Como a base do SIVEP-Gripe não disponibiliza informações sobre capacidade instalada ou ocupação total dos leitos hospitalares, foi utilizada uma métrica proxy baseada na proporção de casos que demandaram internação em UTI.
+
+## Taxa de Vacinação
+
+A taxa de vacinação observada foi de 75,47%.
+
+Dos 165.372 registros com informação vacinal disponível, 124.808 apresentaram registro de vacinação contra COVID-19.
+
+Como o conjunto de dados é composto por pacientes notificados com SRAG, a métrica representa a proporção de indivíduos vacinados entre os casos analisados e não deve ser interpretada como cobertura vacinal da população geral.
+
+## Taxa de Crescimento dos Casos
+
+Foram registrados 35.578 casos nos últimos 30 dias, contra 50.242 casos nos 30 dias anteriores.
+
+A análise indica uma variação de -29,19%, sugerindo redução da quantidade de casos registrados no período mais recente.
+
+A métrica foi calculada comparando os registros dos últimos 30 dias disponíveis na base com os 30 dias imediatamente anteriores.

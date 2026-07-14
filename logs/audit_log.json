@@ -1,0 +1,22 @@
+[
+  {
+    "data_execucao": "2026-07-14",
+    "acao": "taxa_mortalidade",
+    "valor": "7.73%"
+  },
+  {
+    "data_execucao": "2026-07-14",
+    "acao": "taxa_uti",
+    "valor": "29.05%"
+  },
+  {
+    "data_execucao": "2026-07-14",
+    "acao": "taxa_vacinacao",
+    "valor": "75.47%"
+  },
+  {
+    "data_execucao": "2026-07-14",
+    "acao": "taxa_crescimento",
+    "valor": "-29.19%"
+  }
+]
