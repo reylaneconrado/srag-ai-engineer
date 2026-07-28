@@ -1,40 +1,28 @@
 import pandas as pd
 
-ARQUIVO = "data/raw/INFLUD25_DATASUS-Versao26-06-2025.csv"
 
-df = pd.read_csv(
-    ARQUIVO,
-    sep=";",
-    encoding="latin1",
-    low_memory=False
-)
+def calcular_uti(df: pd.DataFrame) -> dict:
+    """Proxy de utilização de UTI entre os casos SRAG com essa informação
+    preenchida. NÃO representa ocupação real de leitos de UTI no país.
+    """
+    base = df[df["UTI"].notna()]
 
-# Registros com informação de UTI
-base = df[df["UTI"].notna()]
+    total = len(base)
+    casos_uti = len(base[base["UTI"] == 1])
 
-total_casos = len(base)
+    taxa = (casos_uti / total) * 100 if total else 0.0
 
-casos_uti = len(
-    base[
-        base["UTI"] == 1
-    ]
-)
+    return {
+        "taxa_uti_pct": round(taxa, 2),
+        "casos_uti": int(casos_uti),
+        "registros_com_info_uti": int(total),
+    }
 
-taxa_uti = (
-    casos_uti /
-    total_casos
-) * 100
 
-print("\nRESULTADO")
+if __name__ == "__main__":
+    import sys
+    sys.path.insert(0, "src")
+    from load_data import carregar_base
 
-print(
-    f"Total casos analisados: {total_casos}"
-)
-
-print(
-    f"Casos com UTI: {casos_uti}"
-)
-
-print(
-    f"Taxa UTI: {taxa_uti:.2f}%"
-)
+    df = carregar_base()
+    print(calcular_uti(df))

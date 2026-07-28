@@ -1,164 +1,198 @@
 import os
-import json
-import urllib.request
 from datetime import datetime
-
-
-OLLAMA = r"C:\Users\MagelaConrado\AppData\Local\Programs\Ollama\ollama.exe"
 
 OUTPUT_FILE = "outputs/relatorio_final.md"
 
-metricas = {
-    "taxa_mortalidade": "7,73%",
-    "casos_avaliados_mortalidade": "127.927",
-    "obitos": "9.885",
-    "taxa_uti": "29,05%",
-    "casos_uti": "42.519",
-    "registros_uti": "146.386",
-    "taxa_vacinacao": "75,47%",
-    "vacinados": "124.808",
-    "registros_vacinacao": "165.372",
-    "taxa_crescimento": "-29,19%",
-    "casos_ultimos_30_dias": "35.578",
-    "casos_30_dias_anteriores": "50.242"
-}
 
-noticias = [
-    "Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)",
-    "Regional Workshop in Brazil Enhances Capacity to Measure Influenza Burden and Vaccination Impact - PAHO/WHO",
-    "Avian flu reported in Brazil, Colombia backyard birds",
-    "Vaccination inequality and social determinants in Brazil during the COVID-19 pandemic",
-    "Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023"
-]
+def _formatar_noticias(noticias: list) -> str:
+    if not noticias:
+        return "_Nenhuma notícia coletada nesta execução._"
 
-prompt = f"""
-Você é um agente de Inteligência Artificial especializado em análise epidemiológica e geração de relatórios executivos.
+    por_categoria = {}
+    for n in noticias:
+        por_categoria.setdefault(n.get("categoria", "geral"), []).append(n)
 
-Contexto obrigatório:
-SRAG significa Síndrome Respiratória Aguda Grave.
-O relatório usa dados públicos do Open DATASUS/SIVEP-Gripe.
-As métricas são agregadas e não representam diagnóstico individual.
+    linhas = []
+    for categoria, itens in por_categoria.items():
+        linhas.append(f"**{categoria.replace('_', ' ').title()}**")
+        for item in itens:
+            link = item.get("link") or ""
+            linhas.append(f"- [{item['titulo']}]({link})" if link else f"- {item['titulo']}")
+        linhas.append("")
+    return "\n".join(linhas)
 
-Regras obrigatórias:
-- Não invente informações.
-- Não diga que uma métrica representa economia, finanças ou orçamento.
-- Não faça diagnóstico médico.
-- Não recomende tratamento clínico.
-- Explique limitações dos dados.
-- Use linguagem profissional.
-- Seja claro e objetivo.
-- A taxa de crescimento negativa significa redução de casos, não crise econômica.
-- A métrica de UTI é uma proxy de utilização de UTI entre casos SRAG, não ocupação real de leitos.
-- A taxa de vacinação representa vacinação entre os registros analisados, não cobertura populacional geral.
 
-Métricas calculadas:
-- Taxa de mortalidade: {metricas["taxa_mortalidade"]}
-- Casos avaliados para mortalidade: {metricas["casos_avaliados_mortalidade"]}
-- Óbitos: {metricas["obitos"]}
+def _correlacionar_noticias_metricas(noticias: list, metricas: dict) -> str:
+    """Correlação explícita entre notícias coletadas e métricas calculadas.
 
-- Taxa de casos com UTI: {metricas["taxa_uti"]}
-- Casos com UTI: {metricas["casos_uti"]}
-- Registros com informação de UTI: {metricas["registros_uti"]}
+    Responde ao feedback do desafio: "estabelecer uma correlação explícita
+    entre cada notícia e as métricas analisadas". Gerado por código, não
+    pelo LLM — o mapeamento é determinístico via categoria do RSS.
+    """
+    if not noticias:
+        return "_Nenhuma notícia coletada nesta execução para correlacionar._"
 
-- Taxa de vacinação: {metricas["taxa_vacinacao"]}
-- Registros vacinados: {metricas["vacinados"]}
-- Registros com informação de vacinação: {metricas["registros_vacinacao"]}
+    MAPA_CATEGORIA_METRICA = {
+        "vacinacao":           ("Taxa de Vacinação",             metricas.get("vacinacao", {}).get("taxa_vacinacao_pct")),
+        "geral_srag":          ("Taxa de Mortalidade / SRAG",    metricas.get("mortalidade", {}).get("taxa_mortalidade_pct")),
+        "influenza":           ("Taxa de Crescimento dos Casos", metricas.get("crescimento", {}).get("taxa_crescimento_pct")),
+        "virus_respiratorios": ("Taxa de Crescimento dos Casos", metricas.get("crescimento", {}).get("taxa_crescimento_pct")),
+        "covid":               ("Taxa de Casos com UTI",         metricas.get("uti", {}).get("taxa_uti_pct")),
+    }
 
-- Taxa de crescimento dos casos: {metricas["taxa_crescimento"]}
-- Casos nos últimos 30 dias: {metricas["casos_ultimos_30_dias"]}
-- Casos nos 30 dias anteriores: {metricas["casos_30_dias_anteriores"]}
+    por_metrica: dict = {}
+    sem_correlacao = []
 
-Notícias e fontes externas coletadas:
-{chr(10).join(["- " + noticia for noticia in noticias])}
+    for n in noticias:
+        cat = n.get("categoria", "")
+        if cat in MAPA_CATEGORIA_METRICA:
+            nome_metrica, valor = MAPA_CATEGORIA_METRICA[cat]
+            if nome_metrica not in por_metrica:
+                por_metrica[nome_metrica] = {"valor": valor, "noticias": []}
+            por_metrica[nome_metrica]["noticias"].append(n)
+        else:
+            sem_correlacao.append(n)
 
-Gere um relatório em Markdown com esta estrutura:
+    linhas = []
+    for nome_metrica, info in por_metrica.items():
+        valor_str = f"{info['valor']}%" if info["valor"] is not None else "N/A"
+        linhas.append(f"### {nome_metrica} ({valor_str})\n")
+        for n in info["noticias"]:
+            link = n.get("link") or ""
+            titulo = n.get("titulo", "")
+            linhas.append(f"- [{titulo}]({link})" if link else f"- {titulo}")
+        linhas.append("")
 
-# Relatório Analítico de SRAG
+    if sem_correlacao:
+        linhas.append("### Contexto Geral\n")
+        for n in sem_correlacao:
+            link = n.get("link") or ""
+            titulo = n.get("titulo", "")
+            linhas.append(f"- [{titulo}]({link})" if link else f"- {titulo}")
 
-## 1. Resumo Executivo
+    return "\n".join(linhas)
 
-## 2. Métricas Principais
+
+def _montar_secao_metricas(metricas: dict) -> str:
+    """Seção 2 gerada por código — nunca pelo LLM, para garantir fidelidade."""
+    mortalidade = metricas.get("mortalidade", {})
+    uti = metricas.get("uti", {})
+    vacinacao = metricas.get("vacinacao", {})
+    crescimento = metricas.get("crescimento", {})
+
+    aviso_imaturidade = crescimento.get("aviso", "")
+    nota_crescimento = f"\n\n> {aviso_imaturidade}" if aviso_imaturidade else ""
+
+    return f"""## 2. Métricas Principais
 
 ### 2.1 Taxa de Mortalidade
 
+**{mortalidade.get("taxa_mortalidade_pct", "N/A")}%** — {mortalidade.get("obitos", "N/A")} óbitos entre {mortalidade.get("casos_avaliados", "N/A")} casos avaliados com evolução conhecida.
+
 ### 2.2 Taxa de Casos com UTI
+
+**{uti.get("taxa_uti_pct", "N/A")}%** — {uti.get("casos_uti", "N/A")} casos entre {uti.get("registros_com_info_uti", "N/A")} registros com essa informação preenchida. *Proxy de utilização, não representa ocupação real de leitos.*
 
 ### 2.3 Taxa de Vacinação
 
+**{vacinacao.get("taxa_vacinacao_pct", "N/A")}%** — {vacinacao.get("vacinados", "N/A")} vacinados entre {vacinacao.get("registros_com_info_vacinacao", "N/A")} registros analisados. *Refere-se apenas aos registros desta base, não à cobertura populacional geral.*
+
 ### 2.4 Taxa de Crescimento dos Casos
+
+**{crescimento.get("taxa_crescimento_pct", "N/A")}%** — {crescimento.get("casos_ultimos_30_dias", "N/A")} casos nos últimos 30 dias analisados vs. {crescimento.get("casos_30_dias_anteriores", "N/A")} no período de 30 dias anterior.{nota_crescimento}
+"""
+
+
+def montar_relatorio_final(secoes: dict, metricas: dict, validacao_guardrails: dict) -> str:
+    """Monta o arquivo final combinando seção de métricas (código) e
+    texto qualitativo (LLM), com correlação explícita notícia-métrica.
+    """
+    aviso_guardrails = ""
+    if not validacao_guardrails.get("aprovado", True):
+        problemas = "\n".join(f"- {p}" for p in validacao_guardrails.get("problemas", []))
+        aviso_guardrails = f"""
+> ⚠️ **Aviso automático de guardrails**: esta versão do texto apresentou as seguintes
+> inconsistências detectadas de forma programática e deve ser revisada antes de ser
+> distribuída:
+{problemas}
+"""
+
+    conteudo_final = f"""# Relatório Analítico de SRAG
+
+Data de geração: {datetime.now().strftime("%d/%m/%Y %H:%M")}
+{aviso_guardrails}
+---
+
+## 1. Resumo Executivo
+
+{secoes.get("resumo_executivo", "")}
+
+{_montar_secao_metricas(metricas)}
 
 ## 3. Contexto Externo com Notícias
 
+{secoes.get("contexto_noticias", "")}
+
+### Correlação entre Notícias e Métricas
+
+Mapeamento explícito de cada notícia coletada em tempo de execução à métrica epidemiológica correspondente:
+
+{_correlacionar_noticias_metricas(metricas.get("noticias", []), metricas)}
+
 ## 4. Limitações da Análise
+
+{secoes.get("limitacoes", "")}
 
 ## 5. Governança e Transparência
 
+{secoes.get("governanca", "")}
+
 ## 6. Conclusão
 
-Inclua também uma observação final dizendo que o relatório tem finalidade analítica e informativa.
-"""
-
-def chamar_llama(prompt):
-    url = "http://localhost:11434/api/generate"
-
-    payload = {
-        "model": "llama3",
-        "prompt": prompt,
-        "stream": False
-    }
-
-    data = json.dumps(payload).encode("utf-8")
-
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={
-            "Content-Type": "application/json"
-        },
-        method="POST"
-    )
-
-    with urllib.request.urlopen(req) as response:
-        result = json.loads(response.read().decode("utf-8"))
-
-    return result["response"]
-
-
-relatorio_ia = chamar_llama(prompt)
-
-
-conteudo_final = f"""# Relatório Analítico de SRAG
-
-Data de geração: {datetime.now().strftime("%d/%m/%Y %H:%M")}
+{secoes.get("conclusao", "")}
 
 ---
 
-{relatorio_ia}
+## Dados brutos usados nesta execução (fonte da seção 2)
 
----
+| Métrica | Valor |
+|---|---|
+| Taxa de mortalidade | {metricas.get("mortalidade", {}).get("taxa_mortalidade_pct", "N/A")}% |
+| Taxa de casos com UTI (proxy) | {metricas.get("uti", {}).get("taxa_uti_pct", "N/A")}% |
+| Taxa de vacinação (amostra) | {metricas.get("vacinacao", {}).get("taxa_vacinacao_pct", "N/A")}% |
+| Taxa de crescimento de casos | {metricas.get("crescimento", {}).get("taxa_crescimento_pct", "N/A")}% |
+
+## Notícias coletadas (RSS, em tempo de execução)
+
+{_formatar_noticias(metricas.get("noticias", []))}
 
 ## Arquivos Gerados
 
 - Gráfico diário dos últimos 30 dias: `outputs/daily_cases_30_days.png`
 - Gráfico mensal dos últimos 12 meses: `outputs/monthly_cases_12_months.png`
+- Log de auditoria completo desta execução: `logs/audit_log.json`
 
 ---
 
 ## Observação Técnica
 
-Este relatório foi gerado automaticamente por uma solução de Inteligência Artificial utilizando:
+Este relatório foi gerado automaticamente por um agente de Inteligência Artificial que:
 
-- Dados estruturados do Open DATASUS/SIVEP-Gripe
-- Métricas calculadas em Python
-- Consulta de notícias via RSS
-- Modelo Llama3 executado localmente com Ollama
-- Guardrails para evitar interpretações clínicas indevidas ou extrapolações não suportadas pelos dados
+- Carregou os dados estruturados do Open DATASUS/SIVEP-Gripe
+- Chamou as ferramentas de cálculo de métricas e de busca de notícias em tempo de execução
+- A seção "Métricas Principais" é montada diretamente a partir do retorno dessas ferramentas
+  (nunca escrita pelo modelo de linguagem, para garantir 100% de fidelidade aos dados)
+- A seção "Correlação entre Notícias e Métricas" mapeia cada notícia coletada à métrica
+  correspondente de forma determinística por código
+- Usou o modelo de linguagem executado localmente com Ollama para redigir apenas o texto
+  qualitativo (resumo, contexto, limitações, governança, conclusão)
+- Passou esse texto por uma validação programática de guardrails (resultado:
+  {"aprovado" if validacao_guardrails.get("aprovado") else "REPROVADO — ver aviso acima"})
+- Registrou cada etapa da execução no log de auditoria
 """
 
-os.makedirs("outputs", exist_ok=True)
+    os.makedirs("outputs", exist_ok=True)
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        f.write(conteudo_final)
 
-with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-    f.write(conteudo_final)
-
-print("Relatório final gerado com sucesso!")
-print(f"Arquivo salvo em: {OUTPUT_FILE}")
+    return OUTPUT_FILE

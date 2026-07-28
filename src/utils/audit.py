@@ -1,35 +1,33 @@
 import json
+import os
 from datetime import datetime
 
-def registrar_log(acao, valor):
+LOG_PATH = "logs/audit_log.json"
+
+
+def registrar_log(acao: str, valor) -> None:
+    """Acrescenta um registro de auditoria.
+
+    O ponto central da correção: esta função agora é chamada pelo
+    orquestrador em CADA etapa do fluxo (carregar dados, cada tool
+    executada, prompt enviado ao LLM, resposta recebida, resultado da
+    validação de guardrails), e não apenas definida e esquecida.
+    """
+    os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
 
     registro = {
         "data_execucao": datetime.now().isoformat(),
         "acao": acao,
-        "valor": valor
+        "valor": valor,
     }
 
     try:
-        with open(
-            "logs/audit_log.json",
-            "r",
-            encoding="utf-8"
-        ) as f:
+        with open(LOG_PATH, "r", encoding="utf-8") as f:
             dados = json.load(f)
-
-    except:
+    except (FileNotFoundError, json.JSONDecodeError):
         dados = []
 
     dados.append(registro)
 
-    with open(
-        "logs/audit_log.json",
-        "w",
-        encoding="utf-8"
-    ) as f:
-        json.dump(
-            dados,
-            f,
-            indent=4,
-            ensure_ascii=False
-        )
+    with open(LOG_PATH, "w", encoding="utf-8") as f:
+        json.dump(dados, f, indent=4, ensure_ascii=False, default=str)

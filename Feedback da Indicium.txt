@@ -1,0 +1,27 @@
+Feedback
+Parabéns por chegar até aqui!
+
+Analisamos sua entrega e a evolução demonstrada ao longo dessas sete semanas. Com base nessa avaliação, reunimos alguns feedbacks específicos sobre o seu projeto.
+
+Feedbacks
+Começando pelos pontos positivos, ao executarmos os scripts sobre a base do DATASUS, as quatro métricas foram reproduzidas com exatidão. Os valores apresentados no relatório correspondem aos resultados efetivamente obtidos pelos cálculos. Também foi adequada a ressalva de que a taxa de UTI representa uma proxy e de que os dados de vacinação se referem aos registros analisados, e não à cobertura vacinal da população. Esse cuidado tanto na apuração quanto na comunicação das limitações constitui uma base importante para a evolução da solução.
+
+O principal ponto de atenção está na orquestração do agente, que representa o núcleo deste desafio e ainda não foi efetivamente implementada. Atualmente, o arquivo responsável pela orquestração não executa nenhuma lógica, enquanto o script de geração do relatório não aciona as ferramentas de cálculo de métricas, coleta de notícias ou auditoria. Em vez disso, os valores das métricas e a lista de notícias estão definidos diretamente no código do gerador.
+
+Dessa forma, o relatório não é produzido por um agente que consulta dados e fontes durante a execução, mas a partir de informações inseridas manualmente. O passo mais importante para aproximar a implementação da arquitetura apresentada no diagrama é reconstruir esse fluxo, fazendo com que o agente invoque as ferramentas e componha o relatório com base nos resultados retornados por elas. Isso pode ser realizado por meio de tool calling ou com o apoio de frameworks como LangChain ou LangGraph.
+
+A coleta de notícias está diretamente relacionada a esse ponto. A função de leitura de RSS foi desenvolvida e representa um bom início, mas ainda não está integrada ao relatório. As notícias apresentadas no documento final são estáticas e não correspondem às informações que seriam coletadas em tempo de execução. Conectar essa ferramenta ao fluxo do agente e estabelecer uma correlação explícita entre cada notícia e as métricas analisadas fortaleceria a proposta de contextualizar os indicadores com fontes externas.
+
+Em relação ao tratamento dos dados, a seleção das colunas foi adequada, porém o processamento ficou concentrado principalmente na conversão das datas, sem abordar problemas relevantes da base. 
+
+No tema de governança e guardrails, identificamos uma intenção adequada: o projeto possui um módulo de auditoria e inclui instruções de restrição no prompt. Entretanto, esses mecanismos ainda não estão sendo aplicados de forma efetiva.
+
+A função de registro de logs não é acionada ao longo do fluxo, e o arquivo de auditoria presente no repositório não aparenta ter sido gerado pela execução do código. Com isso, as ações e decisões do agente ainda não são rastreáveis.
+
+Quanto aos guardrails, atualmente eles estão concentrados no texto do prompt, sem validações programáticas. Além disso, uma das instruções orienta o modelo a interpretar uma taxa negativa como redução dos casos, o que reforçou uma conclusão incorreta gerada pela análise. Uma abordagem mais robusta seria registrar cada etapa da execução, incluindo dados utilizados, prompt enviado e resposta gerada, e substituir instruções fixas por verificações programáticas que impeçam a apresentação de afirmações não sustentadas pelos dados.
+
+Em resumo, os componentes isolados de cálculo e visualização estão presentes, e os valores produzidos são reproduzíveis e confiáveis. Entretanto, o núcleo do desafio, a construção de um agente capaz de orquestrar ferramentas, utilizar notícias coletadas em tempo de execução e registrar suas próprias decisões, ainda precisa ser desenvolvido.
+
+Também é necessário aprimorar o tratamento dos dados para evitar que períodos incompletos levem a interpretações e conclusões invertidas. Esses são pontos bem delimitados e, ao endereçá-los, o conjunto atual de scripts poderá evoluir para uma solução de inteligência artificial efetivamente integrada de ponta a ponta.
+
+Ficamos à disposição para apoiar você nesse processo de evolução.

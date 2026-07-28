@@ -1,53 +1,33 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-ARQUIVO = "data/raw/INFLUD25_DATASUS-Versao26-06-2025.csv"
 
-df = pd.read_csv(
-    ARQUIVO,
-    sep=";",
-    encoding="latin1",
-    low_memory=False
-)
+def gerar_grafico_mensal(df: pd.DataFrame, saida: str = "outputs/monthly_cases_12_months.png") -> str:
+    df = df.copy()
+    df["MES"] = df["DT_SIN_PRI"].dt.to_period("M")
 
-df["DT_SIN_PRI"] = pd.to_datetime(
-    df["DT_SIN_PRI"],
-    errors="coerce"
-)
+    serie = df.groupby("MES").size().tail(12)
 
-# Agrupamento por mês
-df["MES"] = df["DT_SIN_PRI"].dt.to_period("M")
+    plt.figure(figsize=(12, 5))
+    plt.plot(serie.index.astype(str), serie.values, marker="o")
+    plt.title("Casos Mensais SRAG - Últimos 12 Meses")
+    plt.xlabel("Mês")
+    plt.ylabel("Quantidade de Casos")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
 
-serie = (
-    df.groupby("MES")
-      .size()
-      .tail(12)
-)
+    os.makedirs(os.path.dirname(saida), exist_ok=True)
+    plt.savefig(saida)
+    plt.close()
 
-plt.figure(figsize=(12,5))
+    return saida
 
-plt.plot(
-    serie.index.astype(str),
-    serie.values,
-    marker="o"
-)
 
-plt.title(
-    "Casos Mensais SRAG - Últimos 12 Meses"
-)
+if __name__ == "__main__":
+    import sys
+    sys.path.insert(0, "src")
+    from load_data import carregar_base
 
-plt.xlabel("Mês")
-
-plt.ylabel("Quantidade de Casos")
-
-plt.xticks(rotation=45)
-
-plt.tight_layout()
-
-plt.savefig(
-    "outputs/monthly_cases_12_months.png"
-)
-
-print(
-    "\nGráfico salvo em outputs/monthly_cases_12_months.png"
-)
+    caminho = gerar_grafico_mensal(carregar_base())
+    print(f"Gráfico salvo em {caminho}")

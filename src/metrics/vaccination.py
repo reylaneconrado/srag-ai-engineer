@@ -1,33 +1,28 @@
 import pandas as pd
 
-ARQUIVO = "data/raw/INFLUD25_DATASUS-Versao26-06-2025.csv"
 
-df = pd.read_csv(
-    ARQUIVO,
-    sep=";",
-    encoding="latin1",
-    low_memory=False
-)
+def calcular_vacinacao(df: pd.DataFrame) -> dict:
+    """Taxa de vacinação entre os registros analisados que informaram
+    VACINA_COV. NÃO representa cobertura vacinal da população geral.
+    """
+    base = df[df["VACINA_COV"].notna()]
 
-base = df[df["VACINA_COV"].notna()]
+    total = len(base)
+    vacinados = len(base[base["VACINA_COV"] == 1])
 
-total = len(base)
+    taxa = (vacinados / total) * 100 if total else 0.0
 
-vacinados = len(
-    base[
-        base["VACINA_COV"] == 1
-    ]
-)
+    return {
+        "taxa_vacinacao_pct": round(taxa, 2),
+        "vacinados": int(vacinados),
+        "registros_com_info_vacinacao": int(total),
+    }
 
-taxa = (
-    vacinados /
-    total
-) * 100
 
-print("\nRESULTADO")
+if __name__ == "__main__":
+    import sys
+    sys.path.insert(0, "src")
+    from load_data import carregar_base
 
-print(f"Total registros: {total}")
-
-print(f"Vacinados: {vacinados}")
-
-print(f"Taxa de vacinação: {taxa:.2f}%")
+    df = carregar_base()
+    print(calcular_vacinacao(df))
