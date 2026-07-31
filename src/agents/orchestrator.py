@@ -112,7 +112,75 @@ def _chamar_ollama_chat(mensagens):
         return json.loads(resp.read().decode("utf-8"))
 
 
-def _extrair_json(resposta_texto: str) -> dict:
+def _secoes_fallback(metricas: dict) -> dict:
+    """Gera seções qualitativas padrão quando o LLM não retorna JSON válido.
+
+    Usa os valores reais das métricas calculadas pelas tools para compor
+    um resumo executivo factual e determinístico — nunca usa texto bruto
+    do modelo, que pode conter sumários de notícias ou outros conteúdos
+    fora de contexto.
+    """
+    mort  = metricas.get("mortalidade", {})
+    uti   = metricas.get("uti", {})
+    vac   = metricas.get("vacinacao", {})
+    cresc = metricas.get("crescimento", {})
+
+    taxa_mort  = mort.get("taxa_mortalidade_pct", "—")
+    taxa_uti   = uti.get("taxa_uti_pct", "—")
+    taxa_vac   = vac.get("taxa_vacinacao_pct", "—")
+    taxa_cresc = cresc.get("taxa_crescimento_pct", "—")
+    ancora     = cresc.get("data_ancora_usada", "—")
+    data_max   = cresc.get("data_max_bruta_arquivo", "—")
+    dias_imatu = cresc.get("dias_finais_excluidos_por_imaturidade", 10)
+
+    direcao = "crescimento" if isinstance(taxa_cresc, (int, float)) and taxa_cresc > 0 else "redução"
+
+    return {
+        "resumo_executivo": (
+            f"No período analisado, a SRAG apresentou taxa de mortalidade de {taxa_mort}% "
+            f"entre os casos com evolução conhecida, indicando relevância clínica da condição. "
+            f"A utilização de UTI alcançou {taxa_uti}% dos registros com essa informação preenchida "
+            f"(proxy de utilização, não ocupação real de leitos). "
+            f"A taxa de vacinação entre os registros analisados foi de {taxa_vac}% "
+            f"(refere-se a esta base, não à cobertura populacional geral). "
+            f"O número de casos apresentou {direcao} de {taxa_cresc}% nos últimos 30 dias "
+            f"em relação ao período anterior, com âncora calculada em {ancora} "
+            f"para excluir os últimos {dias_imatu} dias de atraso de notificação."
+        ),
+        "contexto_noticias": (
+            "As notícias coletadas em tempo real estão listadas e correlacionadas "
+            "por métrica na seção de Contexto Externo acima."
+        ),
+        "limitacoes": (
+            f"A taxa de casos com UTI ({taxa_uti}%) é uma proxy calculada sobre os registros "
+            "com campo UTI preenchido e não representa ocupação real de leitos de terapia intensiva. "
+            f"A taxa de vacinação ({taxa_vac}%) reflete os registros desta base e não deve ser "
+            "interpretada como cobertura vacinal da população geral. "
+            f"Os últimos {dias_imatu} dias da base (até {data_max}) apresentam subnotificação "
+            "por atraso de digitação e foram excluídos do cálculo de crescimento de casos."
+        ),
+        "governanca": (
+            "Esta execução foi integralmente registrada no log de auditoria (logs/audit_log.json), "
+            "incluindo: carregamento e limpeza dos dados, chamada de cada uma das 5 tools, "
+            "métricas finais utilizadas no relatório, resultado da validação de guardrails "
+            "e geração do relatório final. "
+            "As métricas foram calculadas deterministicamente por código Python, "
+            "sem intervenção do modelo de linguagem nos valores numéricos. "
+            "O texto qualitativo passou por validação programática de guardrails antes de ser "
+            "incluído neste documento. Esta seção foi gerada pelo fallback determinístico "
+            "por falha no parse do JSON do modelo."
+        ),
+        "conclusao": (
+            "Os quatro indicadores calculados — mortalidade, UTI, vacinação e crescimento de casos — "
+            "estão disponíveis com seus respectivos denominadores na seção de Métricas Principais. "
+            "O cenário de crescimento de casos e a expressiva taxa de utilização de UTI reforçam "
+            "a necessidade de acompanhamento contínuo dos indicadores à medida que novos registros "
+            "forem incorporados à base Open DATASUS/SIVEP-Gripe."
+        ),
+    }
+
+
+def _extrair_json(resposta_texto: str, metricas: dict | None = None) -> dict:
     """Extrai o objeto JSON da resposta do modelo, tolerando texto extra
     antes/depois (cercas de código markdown, comentários do modelo após o
     JSON etc.) — em vez de só remover cercas na ponta exata da string
@@ -144,11 +212,12 @@ def _extrair_json(resposta_texto: str) -> dict:
                 dados = None
 
     if dados is None:
-        # Fallback: se não achou um objeto JSON válido em lugar nenhum, usa
-        # o texto inteiro como resumo executivo e deixa o resto vazio — o
-        # guardrail ainda roda sobre esse texto normalmente.
+        # Fallback: o modelo não devolveu JSON válido. Preenche todas as
+        # seções com texto padrão baseado nas métricas reais — nunca usa
+        # o texto bruto do modelo (que pode ser um sumário de notícias ou
+        # qualquer outra coisa fora de contexto).
         registrar_log(acao="falha_parse_json_llm", valor=resposta_texto[:500])
-        dados = {"resumo_executivo": texto}
+        dados = _secoes_fallback(metricas or {})
 
     return {chave: _paragrafar(dados.get(chave, "")) for chave in CHAVES_SECOES}
 
@@ -199,7 +268,7 @@ def _escrever_secoes(resultados: dict, periodo_real: str) -> dict:
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": prompt},
     ])
-    return _extrair_json(resposta["message"]["content"])
+    return _extrair_json(resposta["message"]["content"], metricas=_normalizar_metricas(resultados))
 
 
 def _regenerar_secoes(secoes_anteriores: dict, resultados: dict, motivos: list[str]) -> dict:
@@ -226,7 +295,7 @@ def _regenerar_secoes(secoes_anteriores: dict, resultados: dict, motivos: list[s
         {"role": "user", "content": prompt_correcao},
     ])
     registrar_log(acao="secoes_regeneradas", valor={"motivos": motivos})
-    return _extrair_json(resposta["message"]["content"])
+    return _extrair_json(resposta["message"]["content"], metricas=_normalizar_metricas(resultados))
 
 
 def _normalizar_metricas(resultados: dict) -> dict:
@@ -284,7 +353,11 @@ def executar_agente():
         validacao_guardrails=validacao,
     )
 
-    registrar_log(acao="relatorio_gerado", valor={"arquivo": caminho, "aprovado_guardrails": validacao["aprovado"]})
+    registrar_log(acao="relatorio_gerado", valor={
+        "arquivo": caminho,
+        "aprovado_guardrails": validacao["aprovado"],
+        "avisos": validacao.get("avisos", []),
+    })
 
     print("Relatório final gerado com sucesso!")
     print(f"Arquivo salvo em: {caminho}")
@@ -292,6 +365,10 @@ def executar_agente():
         print("\n⚠️  ATENÇÃO — guardrails encontraram problemas no texto gerado pelo LLM:")
         for problema in validacao["problemas"]:
             print(f"  - {problema}")
+    if validacao.get("avisos"):
+        print("\nℹ️  Avisos (não bloqueantes — revisar manualmente):")
+        for aviso in validacao["avisos"]:
+            print(f"  - {aviso}")
 
 
 if __name__ == "__main__":

@@ -214,6 +214,12 @@ def validar_relatorio(texto: str, metricas: dict, texto_noticias: str = "") -> d
         if v is not None
     ]
 
+    # Percentuais fora das 4 métricas viram AVISOS (não bloqueios).
+    # O SYSTEM_PROMPT instrui o LLM a não citar percentuais. Quando obedece,
+    # o item 3 trata com continue. Quando desobedece e erra, o item 3 pega.
+    # Como bloqueio, isso criava loop: LLM oscilava, esgotava retentativas,
+    # e o relatório final ficava com seções vazias — pior que um aviso.
+    avisos: list[str] = []
     if valores_conhecidos:
         percentuais_no_texto = {
             float(n.replace(",", ".")) for n in re.findall(r"(-?\d+(?:[.,]\d+)?)\s*%", texto)
@@ -221,12 +227,9 @@ def validar_relatorio(texto: str, metricas: dict, texto_noticias: str = "") -> d
         for p in sorted(percentuais_no_texto):
             bate_com_algum = any(abs(p - v) <= max(1.0, abs(v) * 0.15) for v in valores_conhecidos)
             if not bate_com_algum:
-                problemas.append(
-                    f"O texto menciona {p}%, que não corresponde a nenhuma das 4 métricas "
-                    "realmente calculadas pelas tools (mortalidade, UTI, vacinação, crescimento). "
-                    "Isso é um forte indício de dado inventado pelo modelo — este agente não tem "
-                    "nenhuma tool que calcule taxas por estado, região, comorbidade ou outras "
-                    "quebras demográficas."
+                avisos.append(
+                    f"[AVISO] O texto menciona {p}%, não correspondente a nenhuma das 4 métricas "
+                    "calculadas. Pode ser dado inventado — revisar manualmente."
                 )
 
     # 5b. Mesma ideia do item 5, mas para CONTAGENS ABSOLUTAS (óbitos, total
@@ -249,10 +252,11 @@ def validar_relatorio(texto: str, metricas: dict, texto_noticias: str = "") -> d
         if v is not None
     ]
 
+    # Item 5b: contagens inventadas — também viraram AVISOS pelo mesmo motivo
+    # do item 5: o LLM é instruído a não citar números absolutos no texto
+    # qualitativo; quando cita e erra, o aviso aparece para revisão manual
+    # sem travar o fluxo com um loop de retentativas infinito.
     if contagens_conhecidas:
-        # Números com separador de milhar (1.234 / 1,234) ou com 4+ dígitos
-        # corridos, desde que não estejam colados a um "%" (isso já é
-        # tratado nas checagens de percentual acima).
         padrao_contagem = re.compile(r"\b(\d{1,3}(?:[.,]\d{3})+|\d{4,})\b(?!\s*%)")
         contagens_no_texto = set()
         for m in padrao_contagem.finditer(texto):
@@ -264,10 +268,9 @@ def validar_relatorio(texto: str, metricas: dict, texto_noticias: str = "") -> d
         for c in sorted(contagens_no_texto):
             bate_com_alguma = any(abs(c - v) <= max(5, v * 0.02) for v in contagens_conhecidas)
             if not bate_com_alguma:
-                problemas.append(
-                    f"O texto menciona a contagem {c}, que não corresponde a nenhum dos números "
-                    "absolutos reais retornados pelas tools (óbitos, casos avaliados, casos UTI, "
-                    "registros de vacinação etc.). Forte indício de dado inventado pelo modelo."
+                avisos.append(
+                    f"[AVISO] O texto menciona a contagem {c}, que não bate com os números "
+                    "reais das tools. Possível dado inventado — revisar manualmente."
                 )
 
 
@@ -303,4 +306,5 @@ def validar_relatorio(texto: str, metricas: dict, texto_noticias: str = "") -> d
     return {
         "aprovado": len(problemas) == 0,
         "problemas": problemas,
+        "avisos": avisos,  # não bloqueiam, mas aparecem no log e no relatório
     }

@@ -5079,5 +5079,1059 @@
             "arquivo": "outputs/relatorio_final.md",
             "aprovado_guardrails": true
         }
+    },
+    {
+        "data_execucao": "2026-07-31T11:59:48.599546",
+        "acao": "inicio_execucao",
+        "valor": true
+    },
+    {
+        "data_execucao": "2026-07-31T11:59:53.618552",
+        "acao": "dados_carregados",
+        "valor": {
+            "linhas": 164315
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T11:59:53.738919",
+        "acao": "tool_call:calcular_mortalidade",
+        "valor": {
+            "taxa_mortalidade_pct": 8.0,
+            "casos_avaliados": 123608,
+            "obitos": 9885
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T11:59:53.855454",
+        "acao": "tool_call:calcular_uti",
+        "valor": {
+            "taxa_uti_pct": 29.52,
+            "casos_uti": 42415,
+            "registros_com_info_uti": 143700
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T11:59:53.981414",
+        "acao": "tool_call:calcular_vacinacao",
+        "valor": {
+            "taxa_vacinacao_pct": 76.28,
+            "vacinados": 124286,
+            "registros_com_info_vacinacao": 162944
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T11:59:54.078618",
+        "acao": "tool_call:calcular_crescimento",
+        "valor": {
+            "taxa_crescimento_pct": 13.42,
+            "casos_ultimos_30_dias": 48516,
+            "casos_30_dias_anteriores": 42777,
+            "data_max_bruta_arquivo": "2025-06-25",
+            "data_ancora_usada": "2025-06-15",
+            "dias_finais_excluidos_por_imaturidade": 10,
+            "aviso": "Os últimos 10 dias de sintomas da base (até 2025-06-25) foram excluídos do cálculo porque a notificação de casos recentes ainda está incompleta (atraso mediano de digitação de ~7 dias). Incluí-los sub-estima artificialmente os casos recentes e pode inverter o sinal da taxa de crescimento."
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:00:01.432203",
+        "acao": "tool_call:buscar_noticias",
+        "valor": [
+            {
+                "categoria": "geral_srag",
+                "titulo": "Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)",
+                "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5lOVpxbEdzMUJkNFJGekhpaVliUTcyRHRGUkcyVFFmbkxBRDRSVENPQWsydWx6QmhPSEwxN0JYUUxiM0RSd2dBaktSUlRqYmF1eDY5UkpoZ2czUFcwLUhaU2xtMDBiYW1UbWxpR3dKRTNreHhIT0E?oc=5"
+            },
+            {
+                "categoria": "geral_srag",
+                "titulo": "Evidence of Airborne Transmission of the Severe Acute Respiratory Syndrome Virus - The New England Journal of Medicine",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vU2ctNFRKc0lfa0stNnV6ZjBwMXpRc2FhTU5KazJEZkVTdmhhRVRoYW10MnF6bHQwc0dnQklZOXFPMXlrU3ZjOTM3ZGx0RHVBcTN5TndXdk82WlJvTDRn?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress",
+                "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports",
+                "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily",
+                "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com",
+                "link": "https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation",
+                "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "Brazil - Centers for Disease Control and Prevention | CDC (.gov)",
+                "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "Adult vaccination in Brazil: a cross-sectional survey on physicians’ prescription habits - medRxiv",
+                "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE00ajgzZXNTakVoRFpYYzc5TnJ2QzZDSTUwdkFpSXQ5dUpncVVXZXVtTnd6aWo4d0ZwdEx3SlMyN2Y1SGM0OWdaYjVyMlZoTEpNUnZ1R1gwQTB1NDlXT0N4SmVPeDlSTWZfbnk2OXN2Y1Bra0hIdzhycHpnQQ?oc=5"
+            }
+        ]
+    },
+    {
+        "data_execucao": "2026-07-31T12:00:01.462416",
+        "acao": "todas_tools_chamadas",
+        "valor": [
+            "calcular_mortalidade",
+            "calcular_uti",
+            "calcular_vacinacao",
+            "calcular_crescimento",
+            "buscar_noticias"
+        ]
+    },
+    {
+        "data_execucao": "2026-07-31T12:00:01.508334",
+        "acao": "metricas_finais_usadas_no_relatorio",
+        "valor": {
+            "mortalidade": {
+                "taxa_mortalidade_pct": 8.0,
+                "casos_avaliados": 123608,
+                "obitos": 9885
+            },
+            "uti": {
+                "taxa_uti_pct": 29.52,
+                "casos_uti": 42415,
+                "registros_com_info_uti": 143700
+            },
+            "vacinacao": {
+                "taxa_vacinacao_pct": 76.28,
+                "vacinados": 124286,
+                "registros_com_info_vacinacao": 162944
+            },
+            "crescimento": {
+                "taxa_crescimento_pct": 13.42,
+                "casos_ultimos_30_dias": 48516,
+                "casos_30_dias_anteriores": 42777,
+                "data_max_bruta_arquivo": "2025-06-25",
+                "data_ancora_usada": "2025-06-15",
+                "dias_finais_excluidos_por_imaturidade": 10,
+                "aviso": "Os últimos 10 dias de sintomas da base (até 2025-06-25) foram excluídos do cálculo porque a notificação de casos recentes ainda está incompleta (atraso mediano de digitação de ~7 dias). Incluí-los sub-estima artificialmente os casos recentes e pode inverter o sinal da taxa de crescimento."
+            },
+            "noticias": [
+                {
+                    "categoria": "geral_srag",
+                    "titulo": "Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)",
+                    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5lOVpxbEdzMUJkNFJGekhpaVliUTcyRHRGUkcyVFFmbkxBRDRSVENPQWsydWx6QmhPSEwxN0JYUUxiM0RSd2dBaktSUlRqYmF1eDY5UkpoZ2czUFcwLUhaU2xtMDBiYW1UbWxpR3dKRTNreHhIT0E?oc=5"
+                },
+                {
+                    "categoria": "geral_srag",
+                    "titulo": "Evidence of Airborne Transmission of the Severe Acute Respiratory Syndrome Virus - The New England Journal of Medicine",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vU2ctNFRKc0lfa0stNnV6ZjBwMXpRc2FhTU5KazJEZkVTdmhhRVRoYW10MnF6bHQwc0dnQklZOXFPMXlrU3ZjOTM3ZGx0RHVBcTN5TndXdk82WlJvTDRn?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress",
+                    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports",
+                    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily",
+                    "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com",
+                    "link": "https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation",
+                    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "Brazil - Centers for Disease Control and Prevention | CDC (.gov)",
+                    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "Adult vaccination in Brazil: a cross-sectional survey on physicians’ prescription habits - medRxiv",
+                    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE00ajgzZXNTakVoRFpYYzc5TnJ2QzZDSTUwdkFpSXQ5dUpncVVXZXVtTnd6aWo4d0ZwdEx3SlMyN2Y1SGM0OWdaYjVyMlZoTEpNUnZ1R1gwQTB1NDlXT0N4SmVPeDlSTWZfbnk2OXN2Y1Bra0hIdzhycHpnQQ?oc=5"
+                }
+            ]
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:02:45.837048",
+        "acao": "falha_parse_json_llm",
+        "valor": "Aqui estão algumas notícias relacionadas à vacinação contra a gripe e outros aspectos da saúde pública no Brasil, baseadas nas categorias fornecidas:\n\n1. Vacinação:\n- Estudo sobre os fatores que influenciam a decisão de se tomar vacina no Brasil (categoria \"vacinacao\")\n- Informações sobre a campanha de vacinação contra a gripe no Brasil (categoria \"vacinacao\")\n\n2. Influenza e outros vírus respiratórios:\n- Aumento da influenza em países do Hemisfério Sul, com recomendações para vacinação (categor"
+    },
+    {
+        "data_execucao": "2026-07-31T12:02:45.867977",
+        "acao": "validacao_guardrails",
+        "valor": {
+            "aprovado": true,
+            "problemas": []
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:02:48.886624",
+        "acao": "relatorio_gerado",
+        "valor": {
+            "arquivo": "outputs/relatorio_final.md",
+            "aprovado_guardrails": true
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:14:14.054603",
+        "acao": "inicio_execucao",
+        "valor": true
+    },
+    {
+        "data_execucao": "2026-07-31T12:14:19.083354",
+        "acao": "dados_carregados",
+        "valor": {
+            "linhas": 164315
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:14:19.167369",
+        "acao": "tool_call:calcular_mortalidade",
+        "valor": {
+            "taxa_mortalidade_pct": 8.0,
+            "casos_avaliados": 123608,
+            "obitos": 9885
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:14:19.245517",
+        "acao": "tool_call:calcular_uti",
+        "valor": {
+            "taxa_uti_pct": 29.52,
+            "casos_uti": 42415,
+            "registros_com_info_uti": 143700
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:14:19.351630",
+        "acao": "tool_call:calcular_vacinacao",
+        "valor": {
+            "taxa_vacinacao_pct": 76.28,
+            "vacinados": 124286,
+            "registros_com_info_vacinacao": 162944
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:14:19.411768",
+        "acao": "tool_call:calcular_crescimento",
+        "valor": {
+            "taxa_crescimento_pct": 13.42,
+            "casos_ultimos_30_dias": 48516,
+            "casos_30_dias_anteriores": 42777,
+            "data_max_bruta_arquivo": "2025-06-25",
+            "data_ancora_usada": "2025-06-15",
+            "dias_finais_excluidos_por_imaturidade": 10,
+            "aviso": "Os últimos 10 dias de sintomas da base (até 2025-06-25) foram excluídos do cálculo porque a notificação de casos recentes ainda está incompleta (atraso mediano de digitação de ~7 dias). Incluí-los sub-estima artificialmente os casos recentes e pode inverter o sinal da taxa de crescimento."
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:14:25.645970",
+        "acao": "tool_call:buscar_noticias",
+        "valor": [
+            {
+                "categoria": "geral_srag",
+                "titulo": "Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)",
+                "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5lOVpxbEdzMUJkNFJGekhpaVliUTcyRHRGUkcyVFFmbkxBRDRSVENPQWsydWx6QmhPSEwxN0JYUUxiM0RSd2dBaktSUlRqYmF1eDY5UkpoZ2czUFcwLUhaU2xtMDBiYW1UbWxpR3dKRTNreHhIT0E?oc=5"
+            },
+            {
+                "categoria": "geral_srag",
+                "titulo": "Evidence of Airborne Transmission of the Severe Acute Respiratory Syndrome Virus - The New England Journal of Medicine",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vU2ctNFRKc0lfa0stNnV6ZjBwMXpRc2FhTU5KazJEZkVTdmhhRVRoYW10MnF6bHQwc0dnQklZOXFPMXlrU3ZjOTM3ZGx0RHVBcTN5TndXdk82WlJvTDRn?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress",
+                "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports",
+                "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily",
+                "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com",
+                "link": "https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation",
+                "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "Brazil - Centers for Disease Control and Prevention | CDC (.gov)",
+                "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "Adult vaccination in Brazil: a cross-sectional survey on physicians’ prescription habits - medRxiv",
+                "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE00ajgzZXNTakVoRFpYYzc5TnJ2QzZDSTUwdkFpSXQ5dUpncVVXZXVtTnd6aWo4d0ZwdEx3SlMyN2Y1SGM0OWdaYjVyMlZoTEpNUnZ1R1gwQTB1NDlXT0N4SmVPeDlSTWZfbnk2OXN2Y1Bra0hIdzhycHpnQQ?oc=5"
+            }
+        ]
+    },
+    {
+        "data_execucao": "2026-07-31T12:14:25.701891",
+        "acao": "todas_tools_chamadas",
+        "valor": [
+            "calcular_mortalidade",
+            "calcular_uti",
+            "calcular_vacinacao",
+            "calcular_crescimento",
+            "buscar_noticias"
+        ]
+    },
+    {
+        "data_execucao": "2026-07-31T12:14:25.744872",
+        "acao": "metricas_finais_usadas_no_relatorio",
+        "valor": {
+            "mortalidade": {
+                "taxa_mortalidade_pct": 8.0,
+                "casos_avaliados": 123608,
+                "obitos": 9885
+            },
+            "uti": {
+                "taxa_uti_pct": 29.52,
+                "casos_uti": 42415,
+                "registros_com_info_uti": 143700
+            },
+            "vacinacao": {
+                "taxa_vacinacao_pct": 76.28,
+                "vacinados": 124286,
+                "registros_com_info_vacinacao": 162944
+            },
+            "crescimento": {
+                "taxa_crescimento_pct": 13.42,
+                "casos_ultimos_30_dias": 48516,
+                "casos_30_dias_anteriores": 42777,
+                "data_max_bruta_arquivo": "2025-06-25",
+                "data_ancora_usada": "2025-06-15",
+                "dias_finais_excluidos_por_imaturidade": 10,
+                "aviso": "Os últimos 10 dias de sintomas da base (até 2025-06-25) foram excluídos do cálculo porque a notificação de casos recentes ainda está incompleta (atraso mediano de digitação de ~7 dias). Incluí-los sub-estima artificialmente os casos recentes e pode inverter o sinal da taxa de crescimento."
+            },
+            "noticias": [
+                {
+                    "categoria": "geral_srag",
+                    "titulo": "Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)",
+                    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5lOVpxbEdzMUJkNFJGekhpaVliUTcyRHRGUkcyVFFmbkxBRDRSVENPQWsydWx6QmhPSEwxN0JYUUxiM0RSd2dBaktSUlRqYmF1eDY5UkpoZ2czUFcwLUhaU2xtMDBiYW1UbWxpR3dKRTNreHhIT0E?oc=5"
+                },
+                {
+                    "categoria": "geral_srag",
+                    "titulo": "Evidence of Airborne Transmission of the Severe Acute Respiratory Syndrome Virus - The New England Journal of Medicine",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vU2ctNFRKc0lfa0stNnV6ZjBwMXpRc2FhTU5KazJEZkVTdmhhRVRoYW10MnF6bHQwc0dnQklZOXFPMXlrU3ZjOTM3ZGx0RHVBcTN5TndXdk82WlJvTDRn?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress",
+                    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports",
+                    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily",
+                    "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com",
+                    "link": "https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation",
+                    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "Brazil - Centers for Disease Control and Prevention | CDC (.gov)",
+                    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "Adult vaccination in Brazil: a cross-sectional survey on physicians’ prescription habits - medRxiv",
+                    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE00ajgzZXNTakVoRFpYYzc5TnJ2QzZDSTUwdkFpSXQ5dUpncVVXZXVtTnd6aWo4d0ZwdEx3SlMyN2Y1SGM0OWdaYjVyMlZoTEpNUnZ1R1gwQTB1NDlXT0N4SmVPeDlSTWZfbnk2OXN2Y1Bra0hIdzhycHpnQQ?oc=5"
+                }
+            ]
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:17:00.811300",
+        "acao": "falha_parse_json_llm",
+        "valor": "Aqui estão algumas notícias relevantes sobre vacinação e doenças respiratórias no Brasil, baseadas nas categorias fornecidas:\n\n1. Vacinação:\n- Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil (The Conversation)\n- Brazil - Centers for Disease Control and Prevention | CDC (.gov)\n\n2. Doenças respiratórias e pandemia:\n- Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 (Nature)\n- As influenza rises across countries in the South"
+    },
+    {
+        "data_execucao": "2026-07-31T12:17:00.846619",
+        "acao": "validacao_guardrails",
+        "valor": {
+            "aprovado": true,
+            "problemas": [],
+            "avisos": []
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:17:03.079618",
+        "acao": "relatorio_gerado",
+        "valor": {
+            "arquivo": "outputs/relatorio_final.md",
+            "aprovado_guardrails": true,
+            "avisos": []
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:26:24.237605",
+        "acao": "inicio_execucao",
+        "valor": true
+    },
+    {
+        "data_execucao": "2026-07-31T12:26:28.659172",
+        "acao": "dados_carregados",
+        "valor": {
+            "linhas": 164315
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:26:28.727555",
+        "acao": "tool_call:calcular_mortalidade",
+        "valor": {
+            "taxa_mortalidade_pct": 8.0,
+            "casos_avaliados": 123608,
+            "obitos": 9885
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:26:28.798193",
+        "acao": "tool_call:calcular_uti",
+        "valor": {
+            "taxa_uti_pct": 29.52,
+            "casos_uti": 42415,
+            "registros_com_info_uti": 143700
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:26:28.882140",
+        "acao": "tool_call:calcular_vacinacao",
+        "valor": {
+            "taxa_vacinacao_pct": 76.28,
+            "vacinados": 124286,
+            "registros_com_info_vacinacao": 162944
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:26:28.942310",
+        "acao": "tool_call:calcular_crescimento",
+        "valor": {
+            "taxa_crescimento_pct": 13.42,
+            "casos_ultimos_30_dias": 48516,
+            "casos_30_dias_anteriores": 42777,
+            "data_max_bruta_arquivo": "2025-06-25",
+            "data_ancora_usada": "2025-06-15",
+            "dias_finais_excluidos_por_imaturidade": 10,
+            "aviso": "Os últimos 10 dias de sintomas da base (até 2025-06-25) foram excluídos do cálculo porque a notificação de casos recentes ainda está incompleta (atraso mediano de digitação de ~7 dias). Incluí-los sub-estima artificialmente os casos recentes e pode inverter o sinal da taxa de crescimento."
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:26:35.098915",
+        "acao": "tool_call:buscar_noticias",
+        "valor": [
+            {
+                "categoria": "geral_srag",
+                "titulo": "Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)",
+                "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5lOVpxbEdzMUJkNFJGekhpaVliUTcyRHRGUkcyVFFmbkxBRDRSVENPQWsydWx6QmhPSEwxN0JYUUxiM0RSd2dBaktSUlRqYmF1eDY5UkpoZ2czUFcwLUhaU2xtMDBiYW1UbWxpR3dKRTNreHhIT0E?oc=5"
+            },
+            {
+                "categoria": "geral_srag",
+                "titulo": "Evidence of Airborne Transmission of the Severe Acute Respiratory Syndrome Virus - The New England Journal of Medicine",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vU2ctNFRKc0lfa0stNnV6ZjBwMXpRc2FhTU5KazJEZkVTdmhhRVRoYW10MnF6bHQwc0dnQklZOXFPMXlrU3ZjOTM3ZGx0RHVBcTN5TndXdk82WlJvTDRn?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress",
+                "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports",
+                "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily",
+                "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com",
+                "link": "https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation",
+                "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "Brazil - Centers for Disease Control and Prevention | CDC (.gov)",
+                "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "Adult vaccination in Brazil: a cross-sectional survey on physicians’ prescription habits - medRxiv",
+                "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE00ajgzZXNTakVoRFpYYzc5TnJ2QzZDSTUwdkFpSXQ5dUpncVVXZXVtTnd6aWo4d0ZwdEx3SlMyN2Y1SGM0OWdaYjVyMlZoTEpNUnZ1R1gwQTB1NDlXT0N4SmVPeDlSTWZfbnk2OXN2Y1Bra0hIdzhycHpnQQ?oc=5"
+            }
+        ]
+    },
+    {
+        "data_execucao": "2026-07-31T12:26:35.116639",
+        "acao": "todas_tools_chamadas",
+        "valor": [
+            "calcular_mortalidade",
+            "calcular_uti",
+            "calcular_vacinacao",
+            "calcular_crescimento",
+            "buscar_noticias"
+        ]
+    },
+    {
+        "data_execucao": "2026-07-31T12:26:35.133632",
+        "acao": "metricas_finais_usadas_no_relatorio",
+        "valor": {
+            "mortalidade": {
+                "taxa_mortalidade_pct": 8.0,
+                "casos_avaliados": 123608,
+                "obitos": 9885
+            },
+            "uti": {
+                "taxa_uti_pct": 29.52,
+                "casos_uti": 42415,
+                "registros_com_info_uti": 143700
+            },
+            "vacinacao": {
+                "taxa_vacinacao_pct": 76.28,
+                "vacinados": 124286,
+                "registros_com_info_vacinacao": 162944
+            },
+            "crescimento": {
+                "taxa_crescimento_pct": 13.42,
+                "casos_ultimos_30_dias": 48516,
+                "casos_30_dias_anteriores": 42777,
+                "data_max_bruta_arquivo": "2025-06-25",
+                "data_ancora_usada": "2025-06-15",
+                "dias_finais_excluidos_por_imaturidade": 10,
+                "aviso": "Os últimos 10 dias de sintomas da base (até 2025-06-25) foram excluídos do cálculo porque a notificação de casos recentes ainda está incompleta (atraso mediano de digitação de ~7 dias). Incluí-los sub-estima artificialmente os casos recentes e pode inverter o sinal da taxa de crescimento."
+            },
+            "noticias": [
+                {
+                    "categoria": "geral_srag",
+                    "titulo": "Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)",
+                    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5lOVpxbEdzMUJkNFJGekhpaVliUTcyRHRGUkcyVFFmbkxBRDRSVENPQWsydWx6QmhPSEwxN0JYUUxiM0RSd2dBaktSUlRqYmF1eDY5UkpoZ2czUFcwLUhaU2xtMDBiYW1UbWxpR3dKRTNreHhIT0E?oc=5"
+                },
+                {
+                    "categoria": "geral_srag",
+                    "titulo": "Evidence of Airborne Transmission of the Severe Acute Respiratory Syndrome Virus - The New England Journal of Medicine",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vU2ctNFRKc0lfa0stNnV6ZjBwMXpRc2FhTU5KazJEZkVTdmhhRVRoYW10MnF6bHQwc0dnQklZOXFPMXlrU3ZjOTM3ZGx0RHVBcTN5TndXdk82WlJvTDRn?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress",
+                    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports",
+                    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily",
+                    "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com",
+                    "link": "https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation",
+                    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "Brazil - Centers for Disease Control and Prevention | CDC (.gov)",
+                    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "Adult vaccination in Brazil: a cross-sectional survey on physicians’ prescription habits - medRxiv",
+                    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE00ajgzZXNTakVoRFpYYzc5TnJ2QzZDSTUwdkFpSXQ5dUpncVVXZXVtTnd6aWo4d0ZwdEx3SlMyN2Y1SGM0OWdaYjVyMlZoTEpNUnZ1R1gwQTB1NDlXT0N4SmVPeDlSTWZfbnk2OXN2Y1Bra0hIdzhycHpnQQ?oc=5"
+                }
+            ]
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:29:31.618958",
+        "acao": "falha_parse_json_llm",
+        "valor": "Aqui estão algumas notícias relevantes sobre vacinação e doenças respiratórias no Brasil, baseadas nas categorias fornecidas:\n\n1. Vacinação:\n- Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil (The Conversation)\n- Brazil - Centers for Disease Control and Prevention | CDC (.gov)\n\n2. Doenças respiratórias e pandemia:\n- Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 (Nature)\n- As influenza rises across countries in the South"
+    },
+    {
+        "data_execucao": "2026-07-31T12:29:31.662708",
+        "acao": "validacao_guardrails",
+        "valor": {
+            "aprovado": true,
+            "problemas": [],
+            "avisos": []
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:29:34.304908",
+        "acao": "relatorio_gerado",
+        "valor": {
+            "arquivo": "outputs/relatorio_final.md",
+            "aprovado_guardrails": true,
+            "avisos": []
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:32:43.520106",
+        "acao": "inicio_execucao",
+        "valor": true
+    },
+    {
+        "data_execucao": "2026-07-31T12:32:48.364454",
+        "acao": "dados_carregados",
+        "valor": {
+            "linhas": 164315
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:32:48.478076",
+        "acao": "tool_call:calcular_mortalidade",
+        "valor": {
+            "taxa_mortalidade_pct": 8.0,
+            "casos_avaliados": 123608,
+            "obitos": 9885
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:32:48.572596",
+        "acao": "tool_call:calcular_uti",
+        "valor": {
+            "taxa_uti_pct": 29.52,
+            "casos_uti": 42415,
+            "registros_com_info_uti": 143700
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:32:48.694357",
+        "acao": "tool_call:calcular_vacinacao",
+        "valor": {
+            "taxa_vacinacao_pct": 76.28,
+            "vacinados": 124286,
+            "registros_com_info_vacinacao": 162944
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:32:48.760377",
+        "acao": "tool_call:calcular_crescimento",
+        "valor": {
+            "taxa_crescimento_pct": 13.42,
+            "casos_ultimos_30_dias": 48516,
+            "casos_30_dias_anteriores": 42777,
+            "data_max_bruta_arquivo": "2025-06-25",
+            "data_ancora_usada": "2025-06-15",
+            "dias_finais_excluidos_por_imaturidade": 10,
+            "aviso": "Os últimos 10 dias de sintomas da base (até 2025-06-25) foram excluídos do cálculo porque a notificação de casos recentes ainda está incompleta (atraso mediano de digitação de ~7 dias). Incluí-los sub-estima artificialmente os casos recentes e pode inverter o sinal da taxa de crescimento."
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:32:55.416633",
+        "acao": "tool_call:buscar_noticias",
+        "valor": [
+            {
+                "categoria": "geral_srag",
+                "titulo": "Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)",
+                "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5lOVpxbEdzMUJkNFJGekhpaVliUTcyRHRGUkcyVFFmbkxBRDRSVENPQWsydWx6QmhPSEwxN0JYUUxiM0RSd2dBaktSUlRqYmF1eDY5UkpoZ2czUFcwLUhaU2xtMDBiYW1UbWxpR3dKRTNreHhIT0E?oc=5"
+            },
+            {
+                "categoria": "geral_srag",
+                "titulo": "Evidence of Airborne Transmission of the Severe Acute Respiratory Syndrome Virus - The New England Journal of Medicine",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vU2ctNFRKc0lfa0stNnV6ZjBwMXpRc2FhTU5KazJEZkVTdmhhRVRoYW10MnF6bHQwc0dnQklZOXFPMXlrU3ZjOTM3ZGx0RHVBcTN5TndXdk82WlJvTDRn?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress",
+                "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5"
+            },
+            {
+                "categoria": "influenza",
+                "titulo": "Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports",
+                "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily",
+                "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com",
+                "link": "https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5"
+            },
+            {
+                "categoria": "covid",
+                "titulo": "“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation",
+                "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5"
+            },
+            {
+                "categoria": "virus_respiratorios",
+                "titulo": "Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "Brazil - Centers for Disease Control and Prevention | CDC (.gov)",
+                "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+            },
+            {
+                "categoria": "vacinacao",
+                "titulo": "Adult vaccination in Brazil: a cross-sectional survey on physicians’ prescription habits - medRxiv",
+                "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE00ajgzZXNTakVoRFpYYzc5TnJ2QzZDSTUwdkFpSXQ5dUpncVVXZXVtTnd6aWo4d0ZwdEx3SlMyN2Y1SGM0OWdaYjVyMlZoTEpNUnZ1R1gwQTB1NDlXT0N4SmVPeDlSTWZfbnk2OXN2Y1Bra0hIdzhycHpnQQ?oc=5"
+            }
+        ]
+    },
+    {
+        "data_execucao": "2026-07-31T12:32:55.436590",
+        "acao": "todas_tools_chamadas",
+        "valor": [
+            "calcular_mortalidade",
+            "calcular_uti",
+            "calcular_vacinacao",
+            "calcular_crescimento",
+            "buscar_noticias"
+        ]
+    },
+    {
+        "data_execucao": "2026-07-31T12:32:55.450768",
+        "acao": "metricas_finais_usadas_no_relatorio",
+        "valor": {
+            "mortalidade": {
+                "taxa_mortalidade_pct": 8.0,
+                "casos_avaliados": 123608,
+                "obitos": 9885
+            },
+            "uti": {
+                "taxa_uti_pct": 29.52,
+                "casos_uti": 42415,
+                "registros_com_info_uti": 143700
+            },
+            "vacinacao": {
+                "taxa_vacinacao_pct": 76.28,
+                "vacinados": 124286,
+                "registros_com_info_vacinacao": 162944
+            },
+            "crescimento": {
+                "taxa_crescimento_pct": 13.42,
+                "casos_ultimos_30_dias": 48516,
+                "casos_30_dias_anteriores": 42777,
+                "data_max_bruta_arquivo": "2025-06-25",
+                "data_ancora_usada": "2025-06-15",
+                "dias_finais_excluidos_por_imaturidade": 10,
+                "aviso": "Os últimos 10 dias de sintomas da base (até 2025-06-25) foram excluídos do cálculo porque a notificação de casos recentes ainda está incompleta (atraso mediano de digitação de ~7 dias). Incluí-los sub-estima artificialmente os casos recentes e pode inverter o sinal da taxa de crescimento."
+            },
+            "noticias": [
+                {
+                    "categoria": "geral_srag",
+                    "titulo": "Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)",
+                    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5lOVpxbEdzMUJkNFJGekhpaVliUTcyRHRGUkcyVFFmbkxBRDRSVENPQWsydWx6QmhPSEwxN0JYUUxiM0RSd2dBaktSUlRqYmF1eDY5UkpoZ2czUFcwLUhaU2xtMDBiYW1UbWxpR3dKRTNreHhIT0E?oc=5"
+                },
+                {
+                    "categoria": "geral_srag",
+                    "titulo": "Evidence of Airborne Transmission of the Severe Acute Respiratory Syndrome Virus - The New England Journal of Medicine",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vU2ctNFRKc0lfa0stNnV6ZjBwMXpRc2FhTU5KazJEZkVTdmhhRVRoYW10MnF6bHQwc0dnQklZOXFPMXlrU3ZjOTM3ZGx0RHVBcTN5TndXdk82WlJvTDRn?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress",
+                    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5"
+                },
+                {
+                    "categoria": "influenza",
+                    "titulo": "Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports",
+                    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily",
+                    "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com",
+                    "link": "https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5"
+                },
+                {
+                    "categoria": "covid",
+                    "titulo": "“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation",
+                    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5"
+                },
+                {
+                    "categoria": "virus_respiratorios",
+                    "titulo": "Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature",
+                    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "Brazil - Centers for Disease Control and Prevention | CDC (.gov)",
+                    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)",
+                    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5"
+                },
+                {
+                    "categoria": "vacinacao",
+                    "titulo": "Adult vaccination in Brazil: a cross-sectional survey on physicians’ prescription habits - medRxiv",
+                    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE00ajgzZXNTakVoRFpYYzc5TnJ2QzZDSTUwdkFpSXQ5dUpncVVXZXVtTnd6aWo4d0ZwdEx3SlMyN2Y1SGM0OWdaYjVyMlZoTEpNUnZ1R1gwQTB1NDlXT0N4SmVPeDlSTWZfbnk2OXN2Y1Bra0hIdzhycHpnQQ?oc=5"
+                }
+            ]
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:33:44.737176",
+        "acao": "falha_parse_json_llm",
+        "valor": "Aqui estão algumas notícias relacionadas à vacinação e doenças respiratórias no Brasil, baseadas nas categorias fornecidas:\n\n1. Vacinação:\n- Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil (The Conversation)\n- Brazil - Centers for Disease Control and Prevention | CDC (.gov)\n\n2. Doenças Respiratórias / Influenza:\n- As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness (Pan American Health Organizati"
+    },
+    {
+        "data_execucao": "2026-07-31T12:33:44.768685",
+        "acao": "validacao_guardrails",
+        "valor": {
+            "aprovado": true,
+            "problemas": [],
+            "avisos": []
+        }
+    },
+    {
+        "data_execucao": "2026-07-31T12:33:47.047002",
+        "acao": "relatorio_gerado",
+        "valor": {
+            "arquivo": "outputs/relatorio_final.md",
+            "aprovado_guardrails": true,
+            "avisos": []
+        }
     }
 ]

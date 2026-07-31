@@ -1,63 +1,63 @@
 # Relatório Analítico de SRAG
 
-Data de geração: 28/07/2026 13:13
+Data de geração: 31/07/2026 12:33
 
 ---
 
 ## 1. Resumo Executivo
 
-O período analisado abrangeu de 29/12/2024 a 25/06/2025, com uma taxa de mortalidade relevante e um aumento no número de casos nos últimos 30 dias. A utilização de UTI foi alta, refletindo a gravidade dos casos SRAG. A vacinação entre os registros analisados atingiu uma taxa satisfatória, mas ainda há espaço para melhoria. As notícias destacam questões relacionadas à pandemia e infecções respiratórias, incluindo estudos sobre vacinação e zoonoses.
+No período analisado, a SRAG apresentou taxa de mortalidade de 8.0% entre os casos com evolução conhecida, indicando relevância clínica da condição. A utilização de UTI alcançou 29.52% dos registros com essa informação preenchida (proxy de utilização, não ocupação real de leitos). A taxa de vacinação entre os registros analisados foi de 76.28% (refere-se a esta base, não à cobertura populacional geral). O número de casos apresentou crescimento de 13.42% nos últimos 30 dias em relação ao período anterior, com âncora calculada em 2025-06-15 para excluir os últimos 10 dias de atraso de notificação.
 
 ## 2. Métricas Principais
 
 ### 2.1 Taxa de Mortalidade
 
-**7.73%** — 9885 óbitos entre 127927 casos avaliados com evolução conhecida.
+**8.0%** — 9885 óbitos entre 123608 casos avaliados com evolução conhecida.
 
 ### 2.2 Taxa de Casos com UTI
 
-**29.05%** — 42519 casos entre 146386 registros com essa informação preenchida. *Proxy de utilização, não representa ocupação real de leitos.*
+**29.52%** — 42415 casos entre 143700 registros com essa informação preenchida. *Proxy de utilização, não representa ocupação real de leitos.*
 
 ### 2.3 Taxa de Vacinação
 
-**75.47%** — 124808 vacinados entre 165372 registros analisados. *Refere-se apenas aos registros desta base, não à cobertura populacional geral.*
+**76.28%** — 124286 vacinados entre 162944 registros analisados. *Refere-se apenas aos registros desta base, não à cobertura populacional geral.*
 
 ### 2.4 Taxa de Crescimento dos Casos
 
-**13.75%** — 48968 casos nos últimos 30 dias analisados vs. 43048 no período de 30 dias anterior.
+**13.42%** — 48516 casos nos últimos 30 dias analisados vs. 42777 no período de 30 dias anterior.
 
 > Os últimos 10 dias de sintomas da base (até 2025-06-25) foram excluídos do cálculo porque a notificação de casos recentes ainda está incompleta (atraso mediano de digitação de ~7 dias). Incluí-los sub-estima artificialmente os casos recentes e pode inverter o sinal da taxa de crescimento.
 
 
 ## 3. Contexto Externo com Notícias
 
-Nenhuma notícia específica foi encontrada que se encaixa diretamente no contexto epidemiológico analisado. No entanto, as notícias disponíveis abordam temas relevantes como a vacinação, infecções respiratórias e estudos sobre zoonoses.
+As notícias coletadas em tempo real estão listadas e correlacionadas por métrica na seção de Contexto Externo acima.
 
 ### Correlação entre Notícias e Métricas
 
 Mapeamento explícito de cada notícia coletada em tempo de execução à métrica epidemiológica correspondente:
 
-### Taxa de Mortalidade / SRAG (7.73%)
+### Taxa de Mortalidade / SRAG (8.0%)
 
 - [Severe Acute Respiratory Syndrome (SARS) - World Health Organization (WHO)](https://news.google.com/rss/articles/CBMidkFVX3lxTE5lOVpxbEdzMUJkNFJGekhpaVliUTcyRHRGUkcyVFFmbkxBRDRSVENPQWsydWx6QmhPSEwxN0JYUUxiM0RSd2dBaktSUlRqYmF1eDY5UkpoZ2czUFcwLUhaU2xtMDBiYW1UbWxpR3dKRTNreHhIT0E?oc=5)
 - [Evidence of Airborne Transmission of the Severe Acute Respiratory Syndrome Virus - The New England Journal of Medicine](https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vU2ctNFRKc0lfa0stNnV6ZjBwMXpRc2FhTU5KazJEZkVTdmhhRVRoYW10MnF6bHQwc0dnQklZOXFPMXlrU3ZjOTM3ZGx0RHVBcTN5TndXdk82WlJvTDRn?oc=5)
 
-### Taxa de Crescimento dos Casos (13.75%)
+### Taxa de Crescimento dos Casos (13.42%)
 
 - [Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature](https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5)
-- [Regional Workshop in Brazil Enhances Capacity to Measure Influenza Burden and Vaccination Impact - PAHO/WHO - Pan American Health Organization (PAHO)](https://news.google.com/rss/articles/CBMivgFBVV95cUxNd0FtS0txMXlEclJiSnNtZzlneEtsaXhZcU5sNFFRaV9fSHF3a3lVLWN0eFY4dnJjWDF5Unlnajltc095YXFqZFNHX3BVZUduVFhEXzh1aGhkZC1YWjlkM0hFZy1HcFcxa2xobGY2RU1sOFpJeGlhSDlPRHU2aUZJc2ItZmdCSFdDRU1obVBmaUNaM1hlczA5TjVKbUN3enhRX1RnU05PMVBlYkR2S054dUNSamdZTUlGbllmSDFR?oc=5)
-- [Assessing Influenza and SARS-CoV-2 Coinfection in Brazil: A Comprehensive Study of Patient Outcomes From 2020 to 2023 - Wiley Online Library](https://news.google.com/rss/articles/CBMiaEFVX3lxTE84VkFBT1ZOdEVMc1J6Z1c4UnZCb0NLY2QxaU81YW00TkdLVXZlT0lJUVA4S01NWGxQa29zdFVYVEVwd2ZqSm8tY3hUMmM3dldwVFhldjE0VXVndkhOSTcyV3BmVl9RREFi?oc=5)
+- [Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress](https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5)
+- [Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports](https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5)
+- [As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5)
 - [Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation](https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5)
 - [Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature](https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5)
-- [As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5)
 
-### Taxa de Casos com UTI (29.05%)
+### Taxa de Casos com UTI (29.52%)
 
-- [First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - ArchDaily](https://news.google.com/rss/articles/CBMisAFBVV95cUxQcUpvemJUaHRYTDlhV3VzWTltLWEwR0lBeGZ6OHZzM1cwTjdzMEFXbW55MnotMXJsdGN1dlVCWTMyLVFkcTdacGoxUFp1b1ZOTTVEUzVEVkNTNTlCWkZ3Z2ZhRHRXVnNreW1xMjUydnhqS1lzMl9JQVpVQUVXUGNSWjVFZ2NVanJLZmlVeWEzcEVMN1h0OGU1M2xZbldvamZ1VldJWnJnbXhQU05lbVo2Nw?oc=5)
+- [Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily](https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5)
+- [Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com](https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5)
 - [“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)](https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5)
-- [Indirect protection and long-term effectiveness of inactivated COVID-19 vaccine: a stepped-wedge randomised trial in Serrana, Brazil | Scientific Reports - Nature](https://news.google.com/rss/articles/CBMiX0FVX3lxTE81T08tV3kzRXdMSzc5STZUdXRTUGxzQ2VMRGh2cXdMRzZRV3lPYVpGQXdVbHhCY1JCNHA1S1l0ajlWLXdzMUxGVWpGUGI5VUp2cXlaV2FGZUhkZHZwVGtN?oc=5)
 
-### Taxa de Vacinação (75.47%)
+### Taxa de Vacinação (76.28%)
 
 - [Brazil - Centers for Disease Control and Prevention | CDC (.gov)](https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5)
 - [As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5)
@@ -66,15 +66,15 @@ Mapeamento explícito de cada notícia coletada em tempo de execução à métri
 
 ## 4. Limitações da Análise
 
-É importante considerar que os dados utilizados não incluem informações detalhadas sobre distribuição geográfica ou demográfica. Além disso, o cálculo da taxa de crescimento foi ajustado para excluir os últimos dez dias por razões de imaturidade dos registros.
+A taxa de casos com UTI (29.52%) é uma proxy calculada sobre os registros com campo UTI preenchido e não representa ocupação real de leitos de terapia intensiva. A taxa de vacinação (76.28%) reflete os registros desta base e não deve ser interpretada como cobertura vacinal da população geral. Os últimos 10 dias da base (até 2025-06-25) apresentam subnotificação por atraso de digitação e foram excluídos do cálculo de crescimento de casos.
 
 ## 5. Governança e Transparência
 
-A governança do processo de análise e publicação destes dados é robusta, com verificações para garantir a integridade dos dados utilizados. No entanto, a exclusão temporária de dados recentes pode afetar a precisão da análise de curto prazo.
+Esta execução foi integralmente registrada no log de auditoria (logs/audit_log.json), incluindo: carregamento e limpeza dos dados, chamada de cada uma das 5 tools, métricas finais utilizadas no relatório, resultado da validação de guardrails e geração do relatório final. As métricas foram calculadas deterministicamente por código Python, sem intervenção do modelo de linguagem nos valores numéricos. O texto qualitativo passou por validação programática de guardrails antes de ser incluído neste documento. Esta seção foi gerada pelo fallback determinístico por falha no parse do JSON do modelo.
 
 ## 6. Conclusão
 
-A situação epidemiológica indica uma necessidade contínua de vigilância e intervenção, especialmente em relação à vacinação e ao gerenciamento dos casos graves.
+Os quatro indicadores calculados — mortalidade, UTI, vacinação e crescimento de casos — estão disponíveis com seus respectivos denominadores na seção de Métricas Principais. O cenário de crescimento de casos e a expressiva taxa de utilização de UTI reforçam a necessidade de acompanhamento contínuo dos indicadores à medida que novos registros forem incorporados à base Open DATASUS/SIVEP-Gripe.
 
 ---
 
@@ -82,10 +82,10 @@ A situação epidemiológica indica uma necessidade contínua de vigilância e i
 
 | Métrica | Valor |
 |---|---|
-| Taxa de mortalidade | 7.73% |
-| Taxa de casos com UTI (proxy) | 29.05% |
-| Taxa de vacinação (amostra) | 75.47% |
-| Taxa de crescimento de casos | 13.75% |
+| Taxa de mortalidade | 8.0% |
+| Taxa de casos com UTI (proxy) | 29.52% |
+| Taxa de vacinação (amostra) | 76.28% |
+| Taxa de crescimento de casos | 13.42% |
 
 ## Notícias coletadas (RSS, em tempo de execução)
 
@@ -95,18 +95,18 @@ A situação epidemiológica indica uma necessidade contínua de vigilância e i
 
 **Influenza**
 - [Dynamics and ecology of a multistage expansion of Oropouche virus in Brazil - Nature](https://news.google.com/rss/articles/CBMiX0FVX3lxTE44cEdQc2lVZzdoRUI5UFFQdXV6UFEwSlMzRi1NVGRDMmdzckd4WHBndjNmeHlQVHg3dG5ZWmR6VmwyT1gyVDMwbjJ4U0libWRUZGtBZklHQ3JlZndGNU0w?oc=5)
-- [Regional Workshop in Brazil Enhances Capacity to Measure Influenza Burden and Vaccination Impact - PAHO/WHO - Pan American Health Organization (PAHO)](https://news.google.com/rss/articles/CBMivgFBVV95cUxNd0FtS0txMXlEclJiSnNtZzlneEtsaXhZcU5sNFFRaV9fSHF3a3lVLWN0eFY4dnJjWDF5Unlnajltc095YXFqZFNHX3BVZUduVFhEXzh1aGhkZC1YWjlkM0hFZy1HcFcxa2xobGY2RU1sOFpJeGlhSDlPRHU2aUZJc2ItZmdCSFdDRU1obVBmaUNaM1hlczA5TjVKbUN3enhRX1RnU05PMVBlYkR2S054dUNSamdZTUlGbllmSDFR?oc=5)
-- [Assessing Influenza and SARS-CoV-2 Coinfection in Brazil: A Comprehensive Study of Patient Outcomes From 2020 to 2023 - Wiley Online Library](https://news.google.com/rss/articles/CBMiaEFVX3lxTE84VkFBT1ZOdEVMc1J6Z1c4UnZCb0NLY2QxaU81YW00TkdLVXZlT0lJUVA4S01NWGxQa29zdFVYVEVwd2ZqSm8tY3hUMmM3dldwVFhldjE0VXVndkhOSTcyV3BmVl9RREFi?oc=5)
+- [Sabiá virus has been circulating in Brazil for 142 years and mutating, study finds - Medical Xpress](https://news.google.com/rss/articles/CBMihgFBVV95cUxPQkotYW1xXzJpU3l4RURlSnJyQ1NncE9HcHNyT24xdlJhQVVWRmNxMU9qSnktcWUwT3RNbE16VWNrOVlwblNXTmg3Ul9rTEd1dUZYSHFQem1ua0czMDFHRXh6bEp2RkR1RXJXdldUY0NjazhBWkF0Umc3TzA5UEN2dG5pQlFHZw?oc=5)
+- [Neymar Misses Training Due To Virus, Spot On Brazil's World Cup Squad At Risk - FOX Sports](https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZVVIRURWdzdzWll4NmtQaVgtaFk5NDdKcmdfS3ZKcnhGQXFJVWsxSnJ3Z2RfVVNoYnlEdTN6X04zUFpYa05ZenV2SmdoX1FqZlp2OS1iVTZMUTBvMEJ1NFgyeU5NazZBTm5mLXRJRUZFXzA5a20wSU44QzVZOHhGZERaTUpNbE9QRjNkYlVCZ1NVejVXeGxEN2hlS2JjYmlJVUxWM094LXc0YVHSAasBQVVfeXFMTWo3SVdDQ3RjOERWbGlqaUgtQ2lyeHB5cHZ5Mm01dFVVV1hqRHBYeHJKc2lfaUMxZkxMLTUwR2V0YTdCU1Axcy1jZWNVV1lOaXUwSGtyYW9aUW4zX2ItUXZCLUN3TlMtZGkwMEx6RzRJR3R4a1BhbHJRMWd0YlVYWXdfZDhpaXRPMmloNUduM2NVMHRDdkRDUG9WMTQ1cE1pdjlZVFNEUnlEUkpR?oc=5)
 
 **Covid**
-- [First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - ArchDaily](https://news.google.com/rss/articles/CBMisAFBVV95cUxQcUpvemJUaHRYTDlhV3VzWTltLWEwR0lBeGZ6OHZzM1cwTjdzMEFXbW55MnotMXJsdGN1dlVCWTMyLVFkcTdacGoxUFp1b1ZOTTVEUzVEVkNTNTlCWkZ3Z2ZhRHRXVnNreW1xMjUydnhqS1lzMl9JQVpVQUVXUGNSWjVFZ2NVanJLZmlVeWEzcEVMN1h0OGU1M2xZbldvamZ1VldJWnJnbXhQU05lbVo2Nw?oc=5)
+- [Gallery of First monument to Covid-19 victims in Brazil is inaugurated in Rio de Janeiro - 1 - ArchDaily](https://news.google.com/rss/articles/CBMiwgJBVV95cUxPSzJVeUlaTXRlQUhsdkFyX0s3cHFYTjVpejhKREMtTUVjZkEza1NpUjBOVkFORk9CUnpkMEpNS3NLTUc2TzVhSE5HVHZQR2JBSDhmZVpqaHRPSHpZWURsY3J6V1UzdUNWYmtsNjBycVNlYjNmN2NSNzY5VEFab25MdFUyd3NzeU4xMjMxVG9fYW9fTGdZZ1l0RkRwa1FaLThfNlRlWFU4TUpKdTdYNzFoX01rMzZFLTUxQm1xSmUzbm9HUlVIdWRMVUROSGZMc2QwMUxQY3RVNmFtMTNHREoyWnk4ZmJGMXVZYXFUbHRqcWExYlppVHZJWFFKM1RkVVF6M1diUHhOY1NZSndkaXpvcW1xajV3eE5XZWl1Wk0wRVpVTWRVOTktcDR0R2Q5aEoycVVKcDlvTl9RZXgwN1hFdEtR?oc=5)
+- [Licensable picture: Employees puts caps on bottles of ethanol-based hand sanitizers in AGE do Brasil factory, hired by brewing Ambev to produce hand sanitizers to donate to public hospitals during the coronavirus disease (COVID-19) outbreak in Vinhedo - reutersconnect.com](https://news.google.com/rss/articles/CBMirARBVV95cUxPQkJad1dzOU9GVW5IblJpdHpMbmRhUGJBRWw0ampZSkplU1F6a1ZuTmpiVWlmS2pHd1I0Qm4wdXdld1lvWmx0OEpfbTlRZ0pWNkg5NWJ3bHRwR1JrNGFWOURXVFJjVnN3NzNXUkp6Zm82c05WUGVySkE4STdFUkFrSFlnRmh0RE5UdFhzbzVWWVJWVFZfWTdWUTg3bW0zRzV5QzlTMW5GQTJ5RnlJOWxDWWVsU2ZUWHhobXZVSERBMVlueUxnTWZQcHc5QjVKRkQ5THFmeXlqNkpERXRuRFpMVEFJNkM2a25kR25hNWpmbHN3N3ZjcVY1ZGJxb0RTRWt2RG83VDRIcXNCQlVPZTExdG51cE1EZU5XQ2pmTDZDZldYVTlLb2VNQm9WSkhPeldfaWFGYm85MER5YnRmbmhXT1ppSkNEYTd1TkZJaFlBWi1BVEFYQjNmb3gxYkl4ckhnSnBlVU9hRXhPZVY0Y01XS1V3WkVTdTFDX00tQ0k4NjZBNFpyZExIYklyOGdOVG9jMG53Q1NUY2Y0T2w0UXI2cjhQOExkdFBtQUVYcjJ5X0Z5SW9XTUprVkhOYUo4NFk2TkEtWWc0ejhhSFVDWHdfbVdTM01KaWRDM3UtYWk1aTZ2a0ZQTnl6QXJkazlHTV8zaXZhN3ZpeFlaYnRmWldIOHpNQ2xhLUpMNm9rOU1KSTE1dFJ0N3dfY21WU1lYeHZVaFZIWjBQQmVVamNl?oc=5)
 - [“The Infinite Memory of the Pandemic” Exhibition Opens in Brasília - Pan American Health Organization (PAHO)](https://news.google.com/rss/articles/CBMikwFBVV95cUxQbXJlOVp0akNTVlZ6NUJQZGJPM2NCRkt3ekZLbnNocUE1V1Z5T1U2Tm16akxRZkVpdXpjczJwazEwc2JrQkpzYUFtcllkZE0tYlB1V3lTM19wNHVUNjNreG03NmMzOEI3aHJrNDVsQW9mcl9QV0RPWllFYWFuWjA1ak1scUJOWFRiRlZ6WjZ4a1VKeEE?oc=5)
-- [Indirect protection and long-term effectiveness of inactivated COVID-19 vaccine: a stepped-wedge randomised trial in Serrana, Brazil | Scientific Reports - Nature](https://news.google.com/rss/articles/CBMiX0FVX3lxTE81T08tV3kzRXdMSzc5STZUdXRTUGxzQ2VMRGh2cXdMRzZRV3lPYVpGQXdVbHhCY1JCNHA1S1l0ajlWLXdzMUxGVWpGUGI5VUp2cXlaV2FGZUhkZHZwVGtN?oc=5)
 
 **Virus Respiratorios**
+- [As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5)
 - [Estudo mostra os fatores que movem a decisão de se tomar vacina no Brasil - The Conversation](https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2dSTVpOaEp2RHE0ZktHWS1FenVvWjhPX25LU3RaOXNmNDREa2M5cTYydTctbURJUFZ3cnVzdEY0MURNVk9BUkNwanEwXzFpanVSZG9GRGJ2aEhhSzVzVnBGZmFJdVU0enB6OHdYOUFwNExKVy1XNlNtZ3BSRExfd1V2NEcyUjhYYkVUVV92RGFoZGFWclBKVUNpOGoydkI1TWg1LWxESkx1R0Jq?oc=5)
 - [Zoonotic transmission of novel Influenza A variant viruses detected in Brazil during 2020 to 2023 - Nature](https://news.google.com/rss/articles/CBMiX0FVX3lxTFBubzl3V3NfYjRaWkxPTjBGRGV5RlpLbnNDYzhTYWdLUDJKLU5UOGgtejlwRjdZc3JFUFBQQ3otbEhibVhmbjNnaWxzbzFYZ3dBLXpfa1Y0M3h3bEQ3RHBv?oc=5)
-- [As influenza rises across countries in the Southern Hemisphere, PAHO urges vaccination and stronger health system preparedness - Pan American Health Organization (PAHO)](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy11QlIzbkZFQjUzYU1zOHdqN3RnTlptLS1DbFRkSjl0Mk4wQjhPZWhQRFhFelUtTHVzUzYtMlRtdTBFNTU2dUNkMTAxdDN0MWNDNUpHN3h5ZThnbzJfRWtKR0JUeEs0MHRYdzlRVEF4YkVOMFUyNF9LbjRidUd4R2xBbU0tUW9mdVBlaWhBTGZwLTk1OWUzZGNULVVMSVV5bklNQkNSVW41Vi02RTRUa2R2N05wazVT?oc=5)
 
 **Vacinacao**
 - [Brazil - Centers for Disease Control and Prevention | CDC (.gov)](https://news.google.com/rss/articles/CBMidEFVX3lxTFBJMDlYMGh3VUNqanRVcGJqckxFRU9lc2NUTEtzN0xhRjU2TG9uUlFCbnlkMFBoeGxhWHd0aUw3WU9ydXQ5dFZPUC1jYnpKVXJZcXJLWWJ3VW82V3UwZ1QwVi0zWk5GZHFTLXRqRTlMMi1IWmUx?oc=5)
